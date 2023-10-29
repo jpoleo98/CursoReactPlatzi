@@ -5,32 +5,36 @@ import { TodoList } from './TodoList';
 import { TodoCreateButton } from './TodoCreateButton';
 import { TodoItem } from './TodoItem';
 
-function useLocalStorage(itemName){
+function useLocalStorage(itemName, initialValue){
 
-  const [items,setItems] = useState();
+  const localStorageItem = localStorage.getItem(itemName)
+  let parseItem;
 
-  const localStorageTodos = localStorage.getItem(itemName)
-  let parseTodos;
-
-  if(!localStorageTodos){
-    localStorage.setItem(itemName,JSON.stringify([]));
-    parseTodos = [];
+  if(!localStorageItem){
+    localStorage.setItem(itemName,JSON.stringify(initialValue));
+    parseItem = initialValue;
   }else{
-    parseTodos = JSON.parse(localStorageTodos);
+    parseItem = JSON.parse(localStorageItem);
   }
+
+  const [items,setItems] = useState(parseItem);
 
   const saveItem = ((newItem)=>{
     
     localStorage.setItem(itemName,JSON.stringify(newItem));
-    setItem(newItem);
+    setItems(newItem);
   })
+
+  return [items, saveItem];
 
 }
 
 function App() {
+
+
   
   const [searchValue,setSearchValue] = useState('');
-  const [todos,setTodos] = useState(parseTodos);
+  const [todos,saveTodos] = useLocalStorage('TODOS_V1',[]);
 
   const completedTodos = todos.filter((todo)=>!!todo.completed).length;
   const totalTodos = todos.length;
