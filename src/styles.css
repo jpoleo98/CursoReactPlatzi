@@ -1,0 +1,169 @@
+/* Fonts */
+
+:scope{
+    --font-main: 'Oswald', sans-serif;
+}
+
+/* Global */
+
+#root{
+    margin: 0;
+    padding: 0;
+}
+
+.upercase{
+    text-transform: uppercase;
+}
+
+.container{
+    width: 98%;
+    margin: 0 auto;
+}
+
+body{
+    font-family: var(--font-main);
+}
+
+ul{
+    list-style: none;
+    padding: 0;
+}
+
+li{
+    display: flex;
+    flex-direction: row;
+    width: 90%;
+    margin: 0 auto;
+    justify-content: space-between;
+    box-shadow: -1px 5px 13px 3px rgba(0,0,0,0.43);
+    -webkit-box-shadow: -1px 5px 13px 3px rgba(0,0,0,0.43);
+    -moz-box-shadow: -1px 5px 13px 3px rgba(0,0,0,0.43);
+    margin-bottom: 1.2rem;
+    border-radius: 8px;
+    font-size: 1.2em;
+    transition: all ease-in-out 0.4s;
+}
+
+li:hover{
+    scale: 1.1;
+}
+
+@media(width >=480px){
+    li{
+        width: 70%;
+    }
+}
+
+.text-center{
+    text-align: center;
+}
+
+/* Counter */
+
+.Tittle{
+    font-size: 1.4em;
+    font-weight: 700;
+    text-align: center;
+}
+
+.completed{
+    color: darkgreen;
+}
+
+@media(width >= 480px){
+    .Tittle{
+        font-size: 2.5em;
+    }
+}
+
+/* Search */
+
+.flex-search{
+    display: flex;
+    justify-content: center;
+    position: relative;
+    margin-bottom: 2rem;
+}
+
+.search{
+    width: 90%;
+    padding: 8px;
+    border-radius: 8px;
+    border: 1px solid black;
+    text-align: center;
+    font-size: 1.2em;
+}
+
+.icon-search{
+    margin: auto 0;
+    position: absolute;
+    padding: 8px;
+    right: 5%;
+    font-size: 1.2em;
+}
+
+@media(width>=480px){
+    .search{
+        width: 60%;
+    }
+
+    .icon-search{
+        right: 20%;
+    }
+}
+
+/* TodoItem */
+
+.icon{
+    margin: auto 0;
+    padding: 0 2rem;
+}
+
+.icon-check{
+    transition: all ease-in-out 0.4s;
+}
+
+.icon-check:hover,.check-completed{
+    color: darkgreen;
+    cursor: pointer;
+}
+
+.icon-cancelled{
+    transition: all ease-in-out 0.4s;
+}
+
+.icon-cancelled:hover{
+    color: darkred;
+    cursor: pointer;
+}
+
+.completed-bc{
+    background-color: #d8e4d3;
+}
+
+/* Button Create */
+
+.button-create{
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    padding: 12px;
+    border-radius: 50%;
+    border: 1px solid black;
+    background-color:#0174BE ;
+    font-size: 2.4em;
+    color: whitesmoke;
+    transition: all ease-in-out 0.4s;
+    font-weight: 700;
+    align-items: center;
+    height: 64px;
+    width: 64px;
+    transform: rotate(0);
+}
+
+.button-create:hover{
+    background-color: #0C356A;
+    cursor: pointer;
+    scale: 1.1;
+    transform: rotate(360deg);
+}
